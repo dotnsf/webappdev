@@ -189,3 +189,15 @@
     - 「削除」ボタンをクリックしたら、確認メッセージを出した上で削除し、画面を再更新する
 
 
+## Licensing
+
+This code is licensed under MIT.
+
+https://github.com/dotnsf/webappdev/blob/master/LICENSE
+
+## Copyright
+
+2018 K.Kimura @ Juge.Me all rights reserved.
+
+
+
