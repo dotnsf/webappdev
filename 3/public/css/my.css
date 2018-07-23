@@ -1,0 +1,29 @@
+body{
+  background: #ffc;
+}
+table{
+  width: 100%;
+}
+table, tr, th, td{
+  border: 1px #000 solid;
+}
+th{
+  background: #ccc;
+}
+td{
+  background: #fff;
+}
+.editbutton{
+  background: #cff;
+}
+.deletebutton{
+  background: #f00;
+  color: #fff;
+}
+.updatebutton{
+  background: #cfc;
+}
+#datetime{
+  text-align: right;
+}
+
