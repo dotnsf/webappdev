@@ -6,13 +6,13 @@ $(function(){
       country: $('#country').val(),
       capital: $('#capital').val()
     };
-    $.ajax( {
+    $.ajax({
       type: 'POST',
       url: '/data',
       data: data,
       success: function( result ){
         //console.log( result );
-        getAllData();
+        location.href = '/';
       },
       error: function(){
         console.log( 'error' );
@@ -21,8 +21,6 @@ $(function(){
 
     return false;
   });
-
-  getAllData();
 });
 
 function date2string( dt ){
@@ -43,32 +41,25 @@ function date2string( dt ){
   return ymdhns;
 }
 
-function getAllData(){
-  $('#tbody1').html( '' );
-  $.ajax( {
-    type: 'GET',
-    url: '/alldata',
-    success: function( result ){
-      //console.log( result );
-      result.forEach( function( data ){
-        var tr = '<tr>'
-          + '<td>' + data.country + '</td><td>' + data.capital + '</td>'
-          + '<td><input type="button" class="editbutton" value="編集"/>'
-          + '<input type="button" class="deletebutton" value="削除"/></td>'
-          + '</tr>';
-        $('#tbody1').append( tr );
-      });
+function editData( data ){
+  $('#country').val( data.country );
+  $('#capital').val( data.capital );
+}
 
-      var tr = '<tr>'
-        + '<td><input type="text" name="country" id="country"/></td>'
-        + '<td><input type="text" name="capital" id="capital"/></td>'
-        + '<td><input type="submit" class="updatebutton" value="更新"/></td>'
-        + '</tr>';
-      $('#tbody1').append( tr );
-    },
-    error: function(){
-      console.log( 'error' );
-    }
-  });
+function deleteData( country ){
+  if( window.confirm( country + 'のデータを削除してもよろしいですか？' ) ){
+    $.ajax({
+      type: 'DELETE',
+      url: '/data',
+      data: { country: country },
+      success: function( result ){
+        //console.log( result );
+        location.href = '/';
+      },
+      error: function(){
+        console.log( 'error' );
+      }
+    });
+  }
 }
 

@@ -15,7 +15,7 @@ app.set( 'view engine', 'ejs' );
 var alldata = [];
 
 app.get( '/', function( req, res ){
-  res.render( 'index', { title: 'K.Kimura のページ' } );
+  res.render( 'index', { title: 'K.Kimura のページ', alldata: alldata } );
 });
 
 app.post( '/data', function( req, res ){
@@ -23,12 +23,6 @@ app.post( '/data', function( req, res ){
 
   res.contentType( 'application/json' );
   res.write( JSON.stringify( req.body ) );
-  res.end();
-});
-
-app.get( '/alldata', function( req, res ){
-  res.contentType( 'application/json' );
-  res.write( JSON.stringify( alldata ) );
   res.end();
 });
 

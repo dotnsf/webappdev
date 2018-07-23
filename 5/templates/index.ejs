@@ -11,11 +11,9 @@
 <form method="POST" action="/data">
 <table>
 <tr><th>国</th><th>首都</th><th>アクション</th></tr>
-<tr><td>Japan</td><td>Tokyo</td><td><input type="button" class="editbutton" value="編集"/><input type="button" class="deletebutton" value="削除"/></td></tr>
-<tr><td>U.S.A.</td><td>Washington D.C.</td><td><input type="button" class="editbutton" value="編集"/><input type="button" class="deletebutton" value="削除"/></td></tr>
-<tr><td>France</td><td>Paris</td><td><input type="button" class="editbutton" value="編集"/><input type="button" class="deletebutton" value="削除"/></td></tr>
-<tr><td>England</td><td>London</td><td><input type="button" class="editbutton" value="編集"/><input type="button" class="deletebutton" value="削除"/></td></tr>
-<tr><td>China</td><td>Beijing</td><td><input type="button" class="editbutton" value="編集"/><input type="button" class="deletebutton" value="削除"/></td></tr>
+<% alldata.forEach( function( data ){ %>
+<tr><td><%= data.country %></td><td><%= data.capital %></td><td><input type="button" class="editbutton" value="編集"/><input type="button" class="deletebutton" value="削除"/></td></tr>
+<% }); %>
 <tr>
  <td><input type="text" name="country" id="country"/></td>
  <td><input type="text" name="capital" id="capital"/></td>
